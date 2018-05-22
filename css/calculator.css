@@ -13,14 +13,14 @@ body{
    background-color: aqua;
 }
 
-.button{
+.keys{
    height: 3em;
    width: 3em;
    padding: .5em;
 
 }
 
-.button:hover{
+.keys:hover{
    background-color: chocolate;
 }
 
