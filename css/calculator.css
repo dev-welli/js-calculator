@@ -1,0 +1,31 @@
+body{
+   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+   background-color: whitesmoke;
+   font-weight: bold;
+   font-size: 1.5em;
+   margin: 3em;
+}
+
+.calculator{
+   border:  1em blue;
+   padding: 1em 1em;
+   width: 18em;
+   background-color: aqua;
+}
+
+.button{
+   height: 3em;
+   width: 3em;
+   padding: .5em;
+
+}
+
+.button:hover{
+   background-color: chocolate;
+}
+
+#display{
+   background-color: black;
+   height: 3em;
+   width: 15em;
+}
