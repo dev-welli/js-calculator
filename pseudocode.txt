@@ -1,0 +1,16 @@
+1. (HTML) Create a box (container) for the calculator body
+2. (HTML) Inside the 'calculator' box:
+ - create a box for the 'LCD display'
+ - create a box for the 'Clear' button
+ - create boxes for 'numerical buttons'
+ - create boxes for 'arithmetical operators' to add, subtract, multiply and divide
+ - create a box for "negative & positive sign" button
+ - create a box for "." for decimal calculation (2 dp)
+ - create box for "Equal" sign button
+3. (JS) Obtain input based on the which button pressed
+4. (JS) Store the input
+5. (JS) Display the input
+6. (JS) Do calculation based on pressed arithmetical operator
+7. (JS) If 'equal' sign is pressed, calculates
+8. (JS) Display the result on the screen (loop back to #6?)
+9. (JS) If "C" button is pressed, clear everything (from display & memory)
