@@ -7,13 +7,17 @@ body{
 }
 
 .calculator{
-   border:  1em blue;
-   padding: 1em 1em;
-   width: 18em;
-   background-color: aqua;
+   border:  solid 0.5em rgba(0, 183, 227, 0.8);
+   border-radius: 1em;
+   padding: 1em;
+   width: 20em;
+   background-color: rgba(0, 183, 227, 0.8);
 }
 
 .keys{
+   font-family: 'Varela Round', sans-serif;
+   border-radius: 0.5em;
+   font-size: 1.2em;
    height: 3em;
    width: 3em;
    padding: .5em;
@@ -26,6 +30,8 @@ body{
 
 #display{
    background-color: black;
+   border-radius: 0.5em;
    height: 3em;
-   width: 15em;
+   width: 17em;
+   margin-bottom: 1em;
 }
