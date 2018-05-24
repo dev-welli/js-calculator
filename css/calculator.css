@@ -7,25 +7,26 @@ body{
 }
 
 .calculator{
-   border:  solid 0.5em rgba(0, 183, 227, 0.8);
+   border:  outset 0.5em rgba(0, 183, 227, 0.8);
    border-radius: 1em;
    padding: 1em;
    width: 20em;
    background-color: rgba(0, 183, 227, 0.8);
+   box-shadow: 0.4em 0.5em 0em rgba(80, 80, 80, 0.7);
 }
 
 .keys{
    font-family: 'Varela Round', sans-serif;
-   border-radius: 0.5em;
+   border-radius: 0.3em;
    font-size: 1.2em;
    height: 3em;
    width: 3em;
    padding: .5em;
-
+   box-shadow: 0.2em 0.2em 0em rgba(80, 80, 80, 0.3);
 }
 
 .keys:hover{
-   background-color: chocolate;
+   background-color: rgba(0, 183, 227, 0.5);
 }
 
 #display{
