@@ -14,16 +14,6 @@ function addEventListener(){
 }
 
 var tempDisplay = ''; // set up temp string for display
-var entries = [];  //set up empty array for calculation
-
-/*
-function calculate(evt){
-   var keyValue = evt.target.id  // recording the key value into variable
-
-   tempDisplay += keyValue;
-   document.getElementById("display").innerHTML = tempDisplay;
-}
-*/
 
 /*
 https://stackoverflow.com/questions/50811591/button-id-cannot-ve-retrieved-shown-with-getelementbyid
@@ -43,7 +33,44 @@ function calculate(evt){
    if (e.nodeName === 'IMG'){
       keyValue = e.parentNode.id;
    }
+ /*  
+1.kebalikannya if not isnan then calculate else show error?
+2. need to add multiply, divide, dot/decimal conversion
+3. need to add second variable for additional calculation? one for display and the other for storage number?
+4. need to figure out the plus minus functionality
+5. need to figure out how to limit input
+*/
 
-   tempDisplay += keyValue;
-   document.getElementById("display").innerHTML = tempDisplay;
+   if (keyValue === 'reset'){
+      tempDisplay = '';
+      document.getElementById("display").innerHTML = "0";
+   }
+   else if (keyValue === 'squareRoot'){
+      if (isNaN(tempDisplay)){
+         document.getElementById("display").innerHTML = "ERROR";
+         tempDisplay = '';
+      }
+      else{
+         document.getElementById("display").innerHTML = Math.sqrt(tempDisplay);
+         tempDisplay = '';
+      }
+   }
+   else if (keyValue === 'square'){
+      if (isNaN(tempDisplay)){
+         document.getElementById("display").innerHTML = "ERROR";
+         tempDisplay = '';
+      }
+      else{
+         document.getElementById("display").innerHTML = Math.pow(tempDisplay, 2);
+         tempDisplay = '';
+      }
+   }
+   else if (keyValue === 'equal'){
+         document.getElementById("display").innerHTML = eval(tempDisplay);
+         //tempDisplay = '';
+   }
+   else{
+      tempDisplay += keyValue;
+      document.getElementById("display").innerHTML = tempDisplay;
+   }
 }
