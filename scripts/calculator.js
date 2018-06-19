@@ -39,7 +39,8 @@ function calculate(evt){
 2. need to add multiply, divide, dot/decimal conversion DONE
 3. need to add second variable for additional calculation? one for display and the other for storage number? DONE
 4. need to figure out the plus minus functionality
-5. need to figure out how to limit input
+5. need to figure out how to limit input -> if tempDisplay.length > 8 then pop?
+6. need to figure out 4 decimal points - http://www.jacklmoore.com/notes/rounding-in-javascript/
 */
 
    if (keyValue === 'reset'){
