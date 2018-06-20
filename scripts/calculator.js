@@ -38,9 +38,9 @@ function calculate(evt){
 1. Should I use !isNan -> calculate else show 'ERROR'?
 2. need to add multiply, divide, dot/decimal conversion DONE
 3. need to add second variable for additional calculation? one for display and the other for storage number? DONE
-4. need to figure out the plus minus functionality - https://stackoverflow.com/questions/4652104/convert-a-negative-number-to-a-positive-one-in-javascript/4652158
-5. need to figure out how to limit input -> if tempDisplay.length > 8 then pop?
-6. need to figure out 4 decimal points - http://www.jacklmoore.com/notes/rounding-in-javascript/
+4. need to figure out the plus minus functionality DONE
+5. need to figure out how to limit input -> if tempDisplay.length > 8 then pop? DONE
+6. need to figure out 4 decimal points - http://www.jacklmoore.com/notes/rounding-in-javascript/ DONE
 */
 
    if (keyValue === 'reset'){
@@ -49,27 +49,42 @@ function calculate(evt){
       document.getElementById("display").innerHTML = "0";
    }
    else if (keyValue === 'squareRoot'){
+      tempDisplay = Math.sqrt(tempDisplay);
+      tempDisplay = Number(Math.round(tempDisplay+'e4')+'e-4'); //rounding to 4 decimal points
       if (isNaN(tempDisplay)){
-         document.getElementById("display").innerHTML = "ERROR";
-         tempDisplay = '';
-         tempNum = '';
+            document.getElementById("display").innerHTML = "ERROR";
+            tempDisplay = '';
+            tempNum = '';
       }
       else{
-         document.getElementById("display").innerHTML = Math.sqrt(tempDisplay);
-         tempDisplay = '';
-         tempNum = '';
+         document.getElementById("display").innerHTML = tempDisplay;
+         tempNum = tempDisplay;
+         
       }
    }
    else if (keyValue === 'square'){
+      tempDisplay = Math.pow(tempDisplay, 2);
       if (isNaN(tempDisplay)){
          document.getElementById("display").innerHTML = "ERROR";
          tempDisplay = '';
          tempNum = '';
       }
       else{
-         document.getElementById("display").innerHTML = Math.pow(tempDisplay, 2);
+         document.getElementById("display").innerHTML = tempDisplay;
+         tempNum = tempDisplay;
+      }
+   }
+   else if (keyValue === 'plusMinus'){
+      if (isNaN(tempDisplay)){
+         document.getElementById("display").innerHTML = "ERROR";
          tempDisplay = '';
          tempNum = '';
+      }
+      else{
+         tempNum *= -1;
+         tempDisplay = document.getElementById("display").innerHTML = tempNum;
+         //Math.abs(x) only works for turning negative number into positive
+         //tempNum = tempDisplay;
       }
    }
    else if (keyValue === 'divide'){
@@ -89,6 +104,11 @@ function calculate(evt){
    else{
       tempDisplay += keyValue;
       tempNum += keyValue;
+
+      if (tempDisplay.length > 15){
+            tempDisplay = tempDisplay.slice(0, -1);
+            tempNum = tempNum.slice(0, -1);
+      }
       document.getElementById("display").innerHTML = tempDisplay;
    }
 }
