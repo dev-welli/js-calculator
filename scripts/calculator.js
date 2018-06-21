@@ -49,41 +49,15 @@ function calculate(evt){
    else if (keyValue === 'squareRoot'){
       tempDisplay = Math.sqrt(tempDisplay);
       tempDisplay = Number(Math.round(tempDisplay+'e4')+'e-4'); //rounding to 4 decimal points
-      if (isNaN(tempDisplay)){
-            document.getElementById("display").innerHTML = "ERROR";
-            tempDisplay = '';
-            tempNum = '';
-      }
-      else{
-         document.getElementById("display").innerHTML = tempDisplay;
-         tempNum = tempDisplay;
-         
-      }
+      errorChecking();
    }
    else if (keyValue === 'square'){
       tempDisplay = Math.pow(tempDisplay, 2);
-      if (isNaN(tempDisplay)){
-         document.getElementById("display").innerHTML = "ERROR";
-         tempDisplay = '';
-         tempNum = '';
-      }
-      else{
-         document.getElementById("display").innerHTML = tempDisplay;
-         tempNum = tempDisplay;
-      }
+      errorChecking();
    }
    else if (keyValue === 'plusMinus'){
-      if (isNaN(tempDisplay)){
-         document.getElementById("display").innerHTML = "ERROR";
-         tempDisplay = '';
-         tempNum = '';
-      }
-      else{
-         tempNum *= -1;
-         tempDisplay = document.getElementById("display").innerHTML = tempNum;
-         //Math.abs(x) only works for turning negative number into positive
-         //tempNum = tempDisplay;
-      }
+      tempDisplay *= -1;
+      errorChecking();
    }
    else if (keyValue === 'divide'){
          tempDisplay += '÷';
@@ -115,4 +89,17 @@ function deleteAll(){
       tempDisplay = '';
       tempNum = '';
       document.getElementById("display").innerHTML = "0";
+}
+
+function errorChecking(){
+      if (isNaN(tempDisplay)){
+            document.getElementById("display").innerHTML = "ERROR";
+            tempDisplay = '';
+            tempNum = '';
+      }
+      else{
+         document.getElementById("display").innerHTML = tempDisplay;
+         tempNum = tempDisplay;
+         
+      }
 }
