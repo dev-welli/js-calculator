@@ -44,9 +44,7 @@ function calculate(evt){
 */
 
    if (keyValue === 'reset'){
-      tempDisplay = '';
-      tempNum = '';
-      document.getElementById("display").innerHTML = "0";
+         deleteAll();
    }
    else if (keyValue === 'squareRoot'){
       tempDisplay = Math.sqrt(tempDisplay);
@@ -111,4 +109,10 @@ function calculate(evt){
       }
       document.getElementById("display").innerHTML = tempDisplay;
    }
+}
+
+function deleteAll(){
+      tempDisplay = '';
+      tempNum = '';
+      document.getElementById("display").innerHTML = "0";
 }
