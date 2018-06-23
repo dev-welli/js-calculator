@@ -9,7 +9,7 @@ function addEventListener(){
   //var input = document.querySelectorAll("keys")
    
    for (var i=0; i < input.length; i++){
-      input[i].addEventListener("click", calculate)
+      input[i].addEventListener("click", calculator)
    }
 }
 
@@ -23,7 +23,7 @@ If you want to get the ID of the button containing it, then you need to check it
 The general solution to this is to recursively checj the tagName of the parentNode until you find a button or run out of parents.
 */
 
-function calculate(evt){
+function calculator(evt){
 
    e = evt.target || evt.srcElement;
 
@@ -43,47 +43,65 @@ function calculate(evt){
 6. need to figure out 4 decimal points - http://www.jacklmoore.com/notes/rounding-in-javascript/ DONE
 */
 
+/*
+switch(keyValue){
+      case 'reset':
+           deleteAll();
+           break;
+      case 'squareRoot':
+            calculatingSquareRoot();
+            break;
+      case 'square':
+            calculatingSquare();
+            break;
+      case 'plusMinus':
+            changingPolarity();
+            break;
+      case 'divide':
+            division();
+            break;
+      case 'multiply':
+            multiplication();
+            break;
+      case 'equal':
+           calculate();
+           break;
+      default:
+            recordKeyStrokes(keyValue);
+}
+*/
+
+
    if (keyValue === 'reset'){
          deleteAll();
    }
    else if (keyValue === 'squareRoot'){
-      tempDisplay = Math.sqrt(tempDisplay);
-      tempDisplay = Number(Math.round(tempDisplay+'e4')+'e-4'); //rounding to 4 decimal points
-      errorChecking();
+      calculatingSquareRoot();
    }
    else if (keyValue === 'square'){
-      tempDisplay = Math.pow(tempDisplay, 2);
-      errorChecking();
+      calculatingSquare();
    }
    else if (keyValue === 'plusMinus'){
-      tempDisplay *= -1;
-      errorChecking();
+      changingPolarity();
    }
    else if (keyValue === 'divide'){
-         tempDisplay += '÷';
-         tempNum += '/';
-         document.getElementById("display").innerHTML = tempDisplay;
+      division();
    }
    else if (keyValue === 'multiply'){
-      tempDisplay += 'x';
-      tempNum += '*';
-      document.getElementById("display").innerHTML = tempDisplay;
+      multiplication();
    }     
    else if (keyValue === 'equal'){
-         tempDisplay = document.getElementById("display").innerHTML = eval(tempNum);
-         //tempDisplay = '';
+        // tempDisplay = document.getElementById("display").innerHTML = eval(tempNum);
+         calculate();
+            
+         
    }
    else{
-      tempDisplay += keyValue;
-      tempNum += keyValue;
-
-      if (tempDisplay.length > 15){
-            tempDisplay = tempDisplay.slice(0, -1);
-            tempNum = tempNum.slice(0, -1);
-      }
-      document.getElementById("display").innerHTML = tempDisplay;
+      recordKeyStrokes(keyValue);
    }
 }
+
+
 
 function deleteAll(){
       tempDisplay = '';
@@ -102,4 +120,62 @@ function errorChecking(){
          tempNum = tempDisplay;
          
       }
+}
+
+//rounding to 4 decimal points
+function rounding(){
+      tempDisplay = Number(Math.round(tempDisplay+'e4')+'e-4'); 
+}
+
+function calculatingSquareRoot(){
+      tempDisplay = Math.sqrt(tempDisplay);
+      rounding()
+      errorChecking();
+}
+
+function calculatingSquare(){
+      tempDisplay = Math.pow(tempDisplay, 2);
+      rounding()
+      errorChecking();
+}
+
+function changingPolarity(){
+      tempDisplay *= -1;
+      errorChecking();
+}
+
+function division(){
+      tempDisplay += '÷';
+      tempNum += '/';
+      document.getElementById("display").innerHTML = tempDisplay;
+}
+
+function multiplication(){
+      tempDisplay += 'x';
+      tempNum += '*';
+      document.getElementById("display").innerHTML = tempDisplay;
+}
+
+function recordKeyStrokes(keyValue){
+      tempDisplay += keyValue;
+      tempNum += keyValue;
+
+      if (tempDisplay.length > 15){
+            tempDisplay = tempDisplay.slice(0, -1);
+            tempNum = tempNum.slice(0, -1);
+      }
+      document.getElementById("display").innerHTML = tempDisplay;
+}
+
+function calculate(){
+      tempDisplay = eval(tempNum);
+
+            if (isNaN(tempDisplay)){
+                  document.getElementById("display").innerHTML = "ERROR";
+                  tempDisplay='';
+                  tempNum='';
+            }
+            else{
+                  document.getElementById("display").innerHTML = tempDisplay;
+            }
 }
