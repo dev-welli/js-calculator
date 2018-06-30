@@ -6,7 +6,6 @@ function start(){
 
 function addEventListener(){
    var input = document.getElementsByClassName("keys")
-  //var input = document.querySelectorAll("keys")
    
    for (var i=0; i < input.length; i++){
       input[i].addEventListener("click", calculator)
@@ -34,42 +33,6 @@ function calculator(evt){
    if (e.nodeName === 'IMG'){
       keyValue = e.parentNode.id;
    }
- /*  
-1. Should I use !isNan -> calculate else show 'ERROR'?
-2. need to add multiply, divide, dot/decimal conversion DONE
-3. need to add second variable for additional calculation? one for display and the other for storage number? DONE
-4. need to figure out the plus minus functionality DONE
-5. need to figure out how to limit input -> if tempDisplay.length > 8 then pop? DONE
-6. need to figure out 4 decimal points - http://www.jacklmoore.com/notes/rounding-in-javascript/ DONE
-*/
-
-/*
-switch(keyValue){
-      case 'reset':
-           deleteAll();
-           break;
-      case 'squareRoot':
-            calculatingSquareRoot();
-            break;
-      case 'square':
-            calculatingSquare();
-            break;
-      case 'plusMinus':
-            changingPolarity();
-            break;
-      case 'divide':
-            division();
-            break;
-      case 'multiply':
-            multiplication();
-            break;
-      case 'equal':
-           calculate();
-           break;
-      default:
-            recordKeyStrokes(keyValue);
-}
-*/
 
 
    if (keyValue === 'reset'){
@@ -91,10 +54,7 @@ switch(keyValue){
       multiplication();
    }     
    else if (keyValue === 'equal'){
-        // tempDisplay = document.getElementById("display").innerHTML = eval(tempNum);
-         calculate();
-            
-         
+         calculate();     
    }
    else{
       recordKeyStrokes(keyValue);
