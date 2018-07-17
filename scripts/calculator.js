@@ -34,30 +34,30 @@ function calculator(evt){
       keyValue = e.parentNode.id;
    }
 
-
-   if (keyValue === 'reset'){
+   switch (keyValue){
+      case 'reset':
          deleteAll();
-   }
-   else if (keyValue === 'squareRoot'){
-      calculatingSquareRoot();
-   }
-   else if (keyValue === 'square'){
-      calculatingSquare();
-   }
-   else if (keyValue === 'plusMinus'){
-      changingPolarity();
-   }
-   else if (keyValue === 'divide'){
-      division();
-   }
-   else if (keyValue === 'multiply'){
-      multiplication();
-   }     
-   else if (keyValue === 'equal'){
-         calculate();     
-   }
-   else{
-      recordKeyStrokes(keyValue);
+         break;
+      case 'squareRoot':
+         calculatingSquareRoot();
+         break;
+      case 'square':
+         calculatingSquare();
+         break;
+      case 'plusMinus':
+         changingPolarity();
+         break;
+      case 'divide':
+         division();
+         break;
+      case 'multiply':
+         multiplication();
+         break;
+      case 'equal':
+         calculate();
+         break;
+      default:
+         recordKeyStrokes(keyValue);
    }
 }
 
